@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import UserInfo from './pages/UserInfo';
+import Header from './components/layout/Header';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
@@ -36,6 +37,7 @@ export default function App() {
   // console.log('app ===', app);
   return (
     <div className='App '>
+      <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
