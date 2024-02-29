@@ -4,7 +4,7 @@ import { auth } from './firebase/firebase';
 import './styles/App.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import Logout from './components/auth/Logout';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import UserInfo from './pages/UserInfo';
@@ -40,8 +40,12 @@ export default function App() {
       <Header isUserLoggedIn={isUserLoggedIn} />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        {/* TODO: padaryti kad neitu nueiti i login jei esam prisijunge */}
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/user-info' element={<UserInfo />} />
+        <Route
+          path='/user-info'
+          element={isUserLoggedIn ? <UserInfo user={userObj} /> : <Navigate to={'/login'} />}
+        />
       </Routes>
     </div>
   );
