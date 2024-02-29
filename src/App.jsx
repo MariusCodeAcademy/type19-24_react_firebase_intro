@@ -36,7 +36,7 @@ export default function App() {
       <hr />
       <Logout />
       <p className=''>User logged in: {userObj?.email}</p>
-      <Login />
+      <Login isUserLoggedIn={isUserLoggedIn} />
     </div>
   );
 }
