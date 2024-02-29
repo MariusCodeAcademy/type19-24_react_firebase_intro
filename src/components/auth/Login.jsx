@@ -1,8 +1,27 @@
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
+import { auth } from '../../firebase/firebase';
 
 const Login = () => {
   const [emailVal, setEmailVal] = useState('');
   const [passwordVal, setPasswordVal] = useState('');
+
+  const loginWithFire = () => {
+    signInWithEmailAndPassword(auth, emailVal, passwordVal)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('user ===', user);
+        // ...
+      })
+      .catch((error) => {
+        console.log('error ===', error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('errorCode ===', errorCode);
+        console.log('errorMessage ===', errorMessage);
+      });
+  };
 
   /**
    *
@@ -11,6 +30,7 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log('logiing in');
+    loginWithFire();
   };
 
   return (
