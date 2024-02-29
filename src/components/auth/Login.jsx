@@ -35,10 +35,13 @@ const Login = () => {
 
   return (
     <div className='border shadow-md rounded-lg mt-7 px-8 py-5'>
+      <h2>Sveiki sugryze i firebase</h2>
+
       <div className='mb-5'>
         <p>email: {emailVal}</p>
         <p>pass: {passwordVal}</p>
       </div>
+
       <form onSubmit={submitHandler} noValidate className='flex flex-col gap-4'>
         <input
           value={emailVal}

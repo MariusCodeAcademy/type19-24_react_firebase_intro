@@ -3,10 +3,13 @@ import Login from './components/auth/Login';
 import { auth } from './firebase/firebase';
 import './styles/App.css';
 import { onAuthStateChanged } from 'firebase/auth';
+import Logout from './components/auth/Logout';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
   console.log('userObj ===', userObj);
+
+  const isUserLoggedIn = !!userObj;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -19,6 +22,7 @@ export default function App() {
         setUserObj(user);
       } else {
         console.log('user logged out');
+        setUserObj(null);
         // User is signed out
         // ...
       }
@@ -30,9 +34,7 @@ export default function App() {
     <div className='App container mx-auto px-4'>
       <h1 className='text-3xl font-bold underline'>Firebase</h1>
       <hr />
-      <button className='border-[1px] px-3 py-1 bg-slate-400 rounded-lg' type='button'>
-        Logout
-      </button>
+      <Logout />
       <p className=''>User logged in: {userObj?.email}</p>
       <Login />
     </div>
