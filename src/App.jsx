@@ -7,6 +7,7 @@ import Logout from './components/auth/Logout';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import UserInfo from './pages/UserInfo';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
@@ -38,6 +39,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/user-info' element={<UserInfo />} />
       </Routes>
     </div>
   );
