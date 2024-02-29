@@ -4,6 +4,9 @@ import { auth } from './firebase/firebase';
 import './styles/App.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import Logout from './components/auth/Logout';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
@@ -31,12 +34,11 @@ export default function App() {
 
   // console.log('app ===', app);
   return (
-    <div className='App container mx-auto px-4'>
-      <h1 className='text-3xl font-bold underline'>Firebase</h1>
-      <hr />
-      <Logout />
-      <p className=''>User logged in: {userObj?.email}</p>
-      <Login isUserLoggedIn={isUserLoggedIn} />
+    <div className='App '>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+      </Routes>
     </div>
   );
 }
