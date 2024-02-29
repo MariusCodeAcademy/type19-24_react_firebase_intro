@@ -37,7 +37,7 @@ export default function App() {
   // console.log('app ===', app);
   return (
     <div className='App '>
-      <Header />
+      <Header isUserLoggedIn={isUserLoggedIn} />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />

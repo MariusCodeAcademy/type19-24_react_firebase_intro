@@ -16,7 +16,7 @@ const Logout = () => {
     <div>
       <button
         onClick={handleLogout}
-        className='border-[1px] px-3 py-1 border-slate-400 bg-white rounded-lg'>
+        className='border-[1px] px-3 py-1 border-slate-400  rounded-lg'>
         Logout
       </button>
     </div>

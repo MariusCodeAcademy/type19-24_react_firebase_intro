@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
+import Logout from '../auth/Logout';
 
-export default function Header() {
+export default function Header({ isUserLoggedIn }) {
   return (
     <header className='bg-gray-900 text-white'>
       <div className='container mx-auto flex justify-between items-center'>
@@ -13,12 +14,21 @@ export default function Header() {
           <NavLink className='block p-4 hover:bg-gray-800' to='/'>
             Home
           </NavLink>
-          <NavLink className='block p-4 hover:bg-gray-800' to='/about'>
-            About
-          </NavLink>
-          <NavLink className='block p-4 hover:bg-gray-800' to='/shop'>
-            Shop
-          </NavLink>
+          {isUserLoggedIn && (
+            <NavLink className='block p-4 hover:bg-gray-800' to='/user-info'>
+              User Space
+            </NavLink>
+          )}
+          {!isUserLoggedIn && (
+            <NavLink className='block p-4 hover:bg-gray-800' to='/login'>
+              Login
+            </NavLink>
+          )}
+          {isUserLoggedIn && (
+            <NavLink className='block p-4 hover:bg-gray-800' to='/login'>
+              <Logout />
+            </NavLink>
+          )}
         </nav>
       </div>
     </header>
