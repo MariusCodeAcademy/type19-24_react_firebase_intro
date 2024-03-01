@@ -3,7 +3,8 @@
 import { useFormik } from 'formik';
 import SmartInput from '../UI/SmartInput';
 import { useEffect } from 'react';
-import { auth } from '../../firebase/firebase';
+import { auth, db } from '../../firebase/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 /*
 const item = {
@@ -29,6 +30,9 @@ const AddListing = () => {
     },
     onSubmit: (finalValues) => {
       console.log('finalValues ===', finalValues);
+      // createDocumentFire
+
+      // atnaujinti sarasa
     },
   });
 
@@ -39,6 +43,16 @@ const AddListing = () => {
     console.log('user ===', user);
     formik.setFieldValue('useriUid', user.uid || 0);
   }, []);
+
+  const createDocumentFire = async (newListingObj) => {
+    try {
+      // const listCollecion = collection(db, 'listings')
+      const docRef = await addDoc(collection(db, 'listings'), newListingObj);
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+  };
 
   return (
     <div className='border p-5 my-5'>
