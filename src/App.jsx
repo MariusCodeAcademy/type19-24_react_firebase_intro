@@ -14,7 +14,7 @@ import ListsPage from './pages/ListsPage';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
-  console.log('userObj ===', userObj);
+  // console.log('userObj ===', userObj);
 
   const isUserLoggedIn = !!userObj;
 

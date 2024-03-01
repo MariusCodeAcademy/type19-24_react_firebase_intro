@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { auth } from '../firebase/firebase';
 
 const UserInfo = ({ user }) => {
-  console.log('user ===', user);
+  // console.log('user ===', user);
 
   const [displayNameVal, setDisplayNameVal] = useState(user.displayName || '');
 
