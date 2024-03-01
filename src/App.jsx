@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import UserInfo from './pages/UserInfo';
 import Header from './components/layout/Header';
 import RegisterPage from './pages/RegisterPage';
+import ListsPage from './pages/ListsPage';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
@@ -54,6 +55,10 @@ export default function App() {
         <Route
           path='/user-info'
           element={isUserLoggedIn ? <UserInfo user={userObj} /> : <Navigate to={'/login'} />}
+        />
+        <Route
+          path='/listings'
+          element={isUserLoggedIn ? <ListsPage /> : <Navigate to={'/login'} />}
         />
       </Routes>
     </div>

@@ -15,9 +15,14 @@ export default function Header({ isUserLoggedIn }) {
             Home
           </NavLink>
           {isUserLoggedIn && (
-            <NavLink className='block p-4 hover:bg-gray-800' to='/user-info'>
-              User Space
-            </NavLink>
+            <>
+              <NavLink className='block p-4 hover:bg-gray-800' to='/user-info'>
+                User Space
+              </NavLink>
+              <NavLink className='block p-4 hover:bg-gray-800' to='/listings'>
+                Listings
+              </NavLink>
+            </>
           )}
           {!isUserLoggedIn && (
             <>
