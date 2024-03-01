@@ -14,3 +14,8 @@
 4. Sukurti route kad galetume patekti i SingleListingPage. route turi tureti dinamini parametra
 5. SingleListingPage pasiimti dinaminio parametro reiksme ir parsiusti konkretu objekta is FireStore
 6. Atvaizduoti visa skelbimo informacija SingleListingPage
+
+## UI
+
+7. sukurti mygtuko komponenta kuris atvaizduos pagtrindini ir outlinini mygtuka priklausomai nuo props.
+8. mygtukas turi priimit onClick, type ir outline propsus
