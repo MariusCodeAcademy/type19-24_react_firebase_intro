@@ -14,8 +14,16 @@ import React from 'react';
   },
 */
 
-const SingleListing = () => {
-  return <div>SingleListing</div>;
+const SingleListing = ({ item }) => {
+  return (
+    <li className='border p-5'>
+      <h3>{item.title}</h3>
+      <img src='' alt='title' />
+      <p>Price: </p>
+      <p>userId: </p>
+      <p>add id: </p>
+    </li>
+  );
 };
 
 export default SingleListing;
