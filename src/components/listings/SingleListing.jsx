@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // atvaizduoti visa objeko info
 
@@ -23,6 +24,10 @@ const SingleListing = ({ item }) => {
         <p>Price: ${item.price.toFixed(2)}</p>
         <p>userId: {item.useriUid}</p>
         <p>add id: {item.id}</p>
+        <button className='border-[1px] px-3 py-1 bg-red-400 rounded-lg'>Delete</button>
+        <Link to={'/'}>
+          <button className='border-[1px] px-3 py-1 bg-slate-400 rounded-lg'>read more</button>
+        </Link>
       </div>
     </li>
   );
