@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SingleListing from './SingleListing';
-import { listingsDb } from '../../db/listingsDb';
+
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
-import { data } from 'autoprefixer';
 
 // importuoti listingsDb ir sukti cikla per ji i sugeneruoti
 
