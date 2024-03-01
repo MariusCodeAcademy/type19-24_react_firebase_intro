@@ -21,18 +21,24 @@ const item = {
 const AddListing = () => {
   const formik = useFormik({
     initialValues: {
-      title: 'Ipad pro',
-      body: 'Labai geras imkit',
-      imgUrl: '',
-      price: 199.99,
+      title: 'Canon R50',
+      body: 'Puikus daiktas, gerai fotkina',
+      imgUrl: 'r50.jpg',
+      price: 899.99,
       isArichived: false,
       useriUid: 123,
     },
     onSubmit: (finalValues) => {
       console.log('finalValues ===', finalValues);
       // createDocumentFire
-
+      createDocumentFire(finalValues).then((idOrFalse) => {
+        if (idOrFalse !== false) {
+          // atnaujinti sarasa
+        }
+      });
       // atnaujinti sarasa
+
+      // atnaujinti sarasa be uzklausos i serveri
     },
   });
 
@@ -49,15 +55,17 @@ const AddListing = () => {
       // const listCollecion = collection(db, 'listings')
       const docRef = await addDoc(collection(db, 'listings'), newListingObj);
       console.log('Document written with ID: ', docRef.id);
+      return docRef.id;
     } catch (e) {
       console.error('Error adding document: ', e);
+      return false;
     }
   };
 
   return (
     <div className='border p-5 my-5'>
       <h2 className='text-2xl'>Create Add</h2>
-      <form className='mt-5'>
+      <form onSubmit={formik.handleSubmit} className='mt-5'>
         <SmartInput name={'title'} formik={formik} />
         <SmartInput name={'imgUrl'} formik={formik} />
         <SmartInput name={'price'} type='number' formik={formik} />
