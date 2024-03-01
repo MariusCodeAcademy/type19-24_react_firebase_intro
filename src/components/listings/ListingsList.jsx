@@ -15,7 +15,12 @@ const ListingsList = () => {
   const [listingsArr, setListingsArr] = useState([]);
 
   const getListingsFire = async () => {
+    // TODO: pasidaryti pagalbine funkcija
+    // fireBtoArr(querySnapshot) => masyva su id
+    // const listingsFire = fireBtoArr(querySnapshot);
+
     const querySnapshot = await getDocs(collection(db, 'listings'));
+
     const listingsFire = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
