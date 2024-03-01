@@ -18,7 +18,7 @@ const item = {
   },
 */
 
-const AddListing = () => {
+const AddListing = ({ onNewListing }) => {
   const formik = useFormik({
     initialValues: {
       title: 'Canon R50',
@@ -34,6 +34,7 @@ const AddListing = () => {
       createDocumentFire(finalValues).then((idOrFalse) => {
         if (idOrFalse !== false) {
           // atnaujinti sarasa
+          onNewListing();
         }
       });
       // atnaujinti sarasa
