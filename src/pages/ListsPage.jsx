@@ -7,6 +7,12 @@ import { db } from '../firebase/firebase';
 const ListsPage = () => {
   const [listingsArr, setListingsArr] = useState([]);
 
+  const handleNewListing = (newLObj) => {
+    // naujas objektas
+    console.log('newLObj ===', newLObj);
+    setListingsArr([newLObj, ...listingsArr]);
+  };
+
   const getListingsFire = async () => {
     // TODO: pasidaryti pagalbine funkcija
     // fireBtoArr(querySnapshot) => masyva su id
@@ -38,7 +44,7 @@ const ListsPage = () => {
       <h1 className='text-3xl font-bold underline my-5'>Skelbimu lenta</h1>
       <p className=''>Welcome to out store</p>
       {/* ikelti Listings list */}
-      <AddListing onNewListing={getListingsFire} />
+      <AddListing onNewListing={handleNewListing} />
       <ListingsList list={listingsArr} />
     </div>
   );

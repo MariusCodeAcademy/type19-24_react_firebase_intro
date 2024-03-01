@@ -21,10 +21,10 @@ const item = {
 const AddListing = ({ onNewListing }) => {
   const formik = useFormik({
     initialValues: {
-      title: 'Canon R50',
-      body: 'Puikus daiktas, gerai fotkina',
-      imgUrl: 'r50.jpg',
-      price: 899.99,
+      title: 'Sony a6000',
+      body: 'Labai geras imkit',
+      imgUrl: 'a6000.jpg',
+      price: 599.99,
       isArichived: false,
       useriUid: 123,
     },
@@ -34,7 +34,10 @@ const AddListing = ({ onNewListing }) => {
       createDocumentFire(finalValues).then((idOrFalse) => {
         if (idOrFalse !== false) {
           // atnaujinti sarasa
-          onNewListing();
+          onNewListing({
+            id: idOrFalse,
+            ...finalValues,
+          });
         }
       });
       // atnaujinti sarasa
