@@ -1,6 +1,7 @@
 //
 
 import { useFormik } from 'formik';
+import SmartInput from '../UI/SmartInput';
 
 /*
 const item = {
@@ -28,10 +29,21 @@ const AddListing = () => {
       console.log('finalValues ===', finalValues);
     },
   });
+
+  console.log('formik.values ===', formik.values);
+
   return (
     <div className='border p-5 my-5'>
       <h2 className='text-2xl'>Create Add</h2>
-      <form></form>
+      <form className='mt-5'>
+        <SmartInput name={'title'} formik={formik} />
+        <SmartInput name={'imgUrl'} formik={formik} />
+        <SmartInput name={'price'} type='number' formik={formik} />
+        <SmartInput name={'body'} type='textarea' formik={formik} />
+        <button className='border-[1px] px-3 py-1 bg-slate-300 rounded-lg' type='submit'>
+          Create
+        </button>
+      </form>
     </div>
   );
 };
