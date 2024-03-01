@@ -11,6 +11,8 @@ const ListingsList = () => {
 
   useEffect(() => {
     setListingsArr(listingsDb);
+
+    // gauti duomenis is firebase firestore (listings)
   }, []);
   return (
     <div>
