@@ -1,4 +1,4 @@
-function SmartInput({ name, formik, type = 'text', placeholder }) {
+function SmartInput({ name, formik, type = 'text', placeholder, disabled = false }) {
   if (!name) {
     console.warn('SmartInput nera name');
   }
@@ -13,6 +13,7 @@ function SmartInput({ name, formik, type = 'text', placeholder }) {
     <label className='block mb-4'>
       <span className='text-lg block first-letter:uppercase'>{name}</span>
       <Element
+        disabled={disabled}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values[name]}

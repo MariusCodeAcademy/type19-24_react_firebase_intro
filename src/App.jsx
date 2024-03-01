@@ -46,7 +46,7 @@ export default function App() {
 
         <Route
           path='/login'
-          element={isUserLoggedIn ? <Navigate to={'/user-info'} /> : <LoginPage />}
+          element={isUserLoggedIn ? <Navigate to={'/listings'} /> : <LoginPage />}
         />
         <Route
           path='/register'
