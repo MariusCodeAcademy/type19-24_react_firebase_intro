@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
 
 const Login = ({ isUserLoggedIn }) => {
-  const [emailVal, setEmailVal] = useState('');
-  const [passwordVal, setPasswordVal] = useState('');
+  const [emailVal, setEmailVal] = useState('james@bond.com');
+  const [passwordVal, setPasswordVal] = useState('123456');
 
   const loginWithFire = () => {
     signInWithEmailAndPassword(auth, emailVal, passwordVal)

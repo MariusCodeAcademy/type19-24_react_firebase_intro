@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import UserInfo from './pages/UserInfo';
 import Header from './components/layout/Header';
+import RegisterPage from './pages/RegisterPage';
 
 export default function App() {
   const [userObj, setUserObj] = useState(null);
@@ -17,6 +18,7 @@ export default function App() {
   const isUserLoggedIn = !!userObj;
 
   useEffect(() => {
+    // Specialus observeris kuris stebi musu firebase varotojo prisijungimo busena
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('user logged in');
@@ -40,8 +42,15 @@ export default function App() {
       <Header isUserLoggedIn={isUserLoggedIn} />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        {/* TODO: padaryti kad neitu nueiti i login jei esam prisijunge */}
-        <Route path='/login' element={<LoginPage />} />
+
+        <Route
+          path='/login'
+          element={isUserLoggedIn ? <Navigate to={'/user-info'} /> : <LoginPage />}
+        />
+        <Route
+          path='/register'
+          element={isUserLoggedIn ? <Navigate to={'/user-info'} /> : <RegisterPage />}
+        />
         <Route
           path='/user-info'
           element={isUserLoggedIn ? <UserInfo user={userObj} /> : <Navigate to={'/login'} />}
