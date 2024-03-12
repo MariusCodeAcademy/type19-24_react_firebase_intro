@@ -5,6 +5,7 @@ import SmartInput from '../UI/SmartInput';
 import { useEffect } from 'react';
 import { auth, db } from '../../firebase/firebase';
 import { addDoc, collection } from 'firebase/firestore';
+import UploadFireComp from './UploadFireComp';
 
 /*
 const item = {
@@ -76,20 +77,12 @@ const AddListing = ({ onNewListing }) => {
         <SmartInput name={'price'} type='number' formik={formik} />
         <SmartInput name={'body'} type='textarea' formik={formik} />
         <SmartInput name={'useriUid'} formik={formik} disabled />
-        {/* ka gaunam i files kai pasirenkam faila su forma */}
-        {/* padaryti kad galetume pasirinkti keleta failu (atributas) */}
-        <input
-          value={formik.values.files}
-          onChange={formik.handleChange}
-          name='files'
-          type='file'
-          className='block mb-5'
-        />
 
         <button className='border-[1px] px-3 py-1 bg-slate-300 rounded-lg' type='submit'>
           Create
         </button>
       </form>
+      <UploadFireComp />
     </div>
   );
 };
