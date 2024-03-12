@@ -27,6 +27,7 @@ const AddListing = ({ onNewListing }) => {
       price: 599.99,
       isArichived: false,
       userUid: 123,
+      files: '',
     },
     onSubmit: (finalValues) => {
       console.log('finalValues ===', finalValues);
@@ -75,6 +76,15 @@ const AddListing = ({ onNewListing }) => {
         <SmartInput name={'price'} type='number' formik={formik} />
         <SmartInput name={'body'} type='textarea' formik={formik} />
         <SmartInput name={'useriUid'} formik={formik} disabled />
+        {/* ka gaunam i files kai pasirenkam faila su forma */}
+        {/* padaryti kad galetume pasirinkti keleta failu (atributas) */}
+        <input
+          value={formik.values.files}
+          onChange={formik.handleChange}
+          name='files'
+          type='file'
+          className='block mb-5'
+        />
 
         <button className='border-[1px] px-3 py-1 bg-slate-300 rounded-lg' type='submit'>
           Create
