@@ -22,7 +22,7 @@ const SingleListing = ({ item }) => {
       <div className='p-5'>
         <h3 className='font-semibold text-lg'>{item.title}</h3>
         <p>Price: ${item.price.toFixed(2)}</p>
-        <p>userId: {item.useriUid}</p>
+        <p>userId: {item.userUid}</p>
         <p>add id: {item.id}</p>
         <button className='border-[1px] px-3 py-1 bg-red-400 rounded-lg'>Delete</button>
         <Link to={'/'}>
