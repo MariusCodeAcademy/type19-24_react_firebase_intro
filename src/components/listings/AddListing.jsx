@@ -52,7 +52,7 @@ const AddListing = ({ onNewListing }) => {
     const user = auth.currentUser;
     console.log('user ===', user);
     formik.setFieldValue('useriUid', user?.uid || 0);
-  }, [formik]);
+  }, []);
 
   const createDocumentFire = async (newListingObj) => {
     try {
