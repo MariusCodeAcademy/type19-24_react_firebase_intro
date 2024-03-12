@@ -25,6 +25,24 @@ const UploadFireComp = () => {
     });
   };
 
+  const uploadFireMulti = () => {
+    const filesArr = Array.from(files);
+    const urls = [];
+    filesArr.forEach((file) => {
+      const imagesRef = ref(storage, 'img/' + genId() + '.' + file.type.split('/')[1]);
+      uploadBytes(imagesRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+        // console.log('snapshot ===', snapshot);
+        getDownloadURL(snapshot.ref).then((downloadURL) => {
+          // nuoroda i paveiksleli
+          console.log('File available at', downloadURL);
+          urls.push(downloadURL);
+          console.log('urls ===', urls);
+        });
+      });
+    });
+  };
+
   console.log('files ===', files);
 
   const handleAddFile = (e) => {
@@ -38,12 +56,12 @@ const UploadFireComp = () => {
       <input
         // value={files}
         onChange={handleAddFile}
-        multiple={false}
+        multiple={true}
         name='files'
         type='file'
         className='block mb-5'
       />
-      <Button onClick={uploadFireSimple}>Upload</Button>
+      <Button onClick={uploadFireMulti}>Upload</Button>
     </div>
   );
 };
