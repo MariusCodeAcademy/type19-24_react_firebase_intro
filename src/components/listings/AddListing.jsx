@@ -51,7 +51,7 @@ const AddListing = ({ onNewListing }) => {
   useEffect(() => {
     const user = auth.currentUser;
     console.log('user ===', user);
-    formik.setFieldValue('useriUid', user?.uid || 0);
+    formik.setFieldValue('userUid', user?.uid || 0);
   }, []);
 
   const createDocumentFire = async (newListingObj) => {
