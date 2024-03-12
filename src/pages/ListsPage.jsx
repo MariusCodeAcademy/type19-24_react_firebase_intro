@@ -7,7 +7,7 @@ import Button from '../components/UI/Button';
 
 const ListsPage = ({ user }) => {
   const [listingsArr, setListingsArr] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   console.log('listingsArr ===', listingsArr);
   const handleNewListing = (newLObj) => {
     // naujas objektas
