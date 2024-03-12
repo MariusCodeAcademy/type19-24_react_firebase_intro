@@ -59,7 +59,7 @@ export default function App() {
         />
         <Route
           path='/listings'
-          element={isUserLoggedIn ? <ListsPage /> : <Navigate to={'/login'} />}
+          element={isUserLoggedIn ? <ListsPage user={userObj} /> : <Navigate to={'/login'} />}
         />
       </Routes>
     </div>

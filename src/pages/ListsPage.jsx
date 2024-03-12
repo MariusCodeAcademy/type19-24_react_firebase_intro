@@ -5,7 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import Button from '../components/UI/Button';
 
-const ListsPage = () => {
+const ListsPage = ({ user }) => {
   const [listingsArr, setListingsArr] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
@@ -50,7 +50,7 @@ const ListsPage = () => {
       </Button>
 
       {showForm && <AddListing onNewListing={handleNewListing} />}
-      <ListingsList list={listingsArr} />
+      <ListingsList user={user} list={listingsArr} />
     </div>
   );
 };
