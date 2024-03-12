@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import { storage } from '../../firebase/firebase';
+import { ref } from 'firebase/storage';
 
 const UploadFireComp = () => {
   const [files, setFiles] = useState(null);
+
+  // 3 upload
+  // sukurti nuoroda i isaugojimo vieta
+  const imagesRef = ref(storage, 'img');
 
   console.log('files ===', files);
 
