@@ -26,7 +26,7 @@ const AddListing = ({ onNewListing }) => {
       imgUrl: 'a6000.jpg',
       price: 599.99,
       isArichived: false,
-      useriUid: 123,
+      userUid: 123,
     },
     onSubmit: (finalValues) => {
       console.log('finalValues ===', finalValues);

@@ -3,9 +3,11 @@ import AddListing from '../components/listings/AddListing';
 import ListingsList from '../components/listings/ListingsList';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import Button from '../components/UI/Button';
 
 const ListsPage = () => {
   const [listingsArr, setListingsArr] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   const handleNewListing = (newLObj) => {
     // naujas objektas
@@ -35,7 +37,6 @@ const ListsPage = () => {
 
   useEffect(() => {
     // setListingsArr(listingsDb);
-
     // gauti duomenis is firebase firestore (listings)
     getListingsFire();
   }, []);
@@ -44,7 +45,11 @@ const ListsPage = () => {
       <h1 className='text-3xl font-bold underline my-5'>Skelbimu lenta</h1>
       <p className=''>Welcome to out store</p>
       {/* ikelti Listings list */}
-      <AddListing onNewListing={handleNewListing} />
+      <Button onClick={() => setShowForm(!showForm)}>
+        {showForm ? 'Hide form' : 'Add Listing'}
+      </Button>
+
+      {showForm && <AddListing onNewListing={handleNewListing} />}
       <ListingsList list={listingsArr} />
     </div>
   );
