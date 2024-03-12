@@ -17,6 +17,7 @@ export default function App() {
   // console.log('userObj ===', userObj);
 
   const isUserLoggedIn = !!userObj;
+  // const isUserLoggedIn = Boolean(userObj);
 
   useEffect(() => {
     // Specialus observeris kuris stebi musu firebase varotojo prisijungimo busena
@@ -36,11 +37,11 @@ export default function App() {
       }
     });
   }, []);
-
+  const email = userObj?.email;
   // console.log('app ===', app);
   return (
     <div className='App '>
-      <Header isUserLoggedIn={isUserLoggedIn} />
+      <Header email={email} isUserLoggedIn={isUserLoggedIn} />
       <Routes>
         <Route path='/' element={<HomePage />} />
 
