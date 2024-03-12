@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { storage } from '../../firebase/firebase';
-import { ref } from 'firebase/storage';
+import { ref, uploadBytes } from 'firebase/storage';
+import Button from '../UI/Button';
 
 const UploadFireComp = () => {
   const [files, setFiles] = useState(null);
 
   // 3 upload
   // sukurti nuoroda i isaugojimo vieta
-  const imagesRef = ref(storage, 'img');
+  const imagesRef = ref(storage, 'img/pirmas.jpg');
+
+  const uploadFireSimple = () => {
+    // 'file' comes from the Blob or File API
+    uploadBytes(imagesRef, files[0]).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+      console.log('snapshot ===', snapshot);
+    });
+  };
 
   console.log('files ===', files);
 
@@ -22,11 +31,12 @@ const UploadFireComp = () => {
       <input
         // value={files}
         onChange={handleAddFile}
-        multiple
+        multiple={false}
         name='files'
         type='file'
         className='block mb-5'
       />
+      <Button onClick={uploadFireSimple}>Upload</Button>
     </div>
   );
 };
